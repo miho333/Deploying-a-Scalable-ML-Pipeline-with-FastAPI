@@ -34,7 +34,7 @@ cat_features = [
     "native-country",
 ]
 
-X_train, y_train, encoder, lb = process_data(train, cat_features,label='income',training=True)
+X_train, y_train, encoder, lb = process_data(train, cat_features,label='salary',training=True)
     # your code here
     # use the train dataset 
     # use training=True
@@ -79,9 +79,11 @@ for col in cat_features:
             test,
             col,
             slicevalue,
-            col,
-            label='income',
-            model=model
+            cat_features,
+            label='salary',
+            model=model,
+            encoder=encoder,
+            lb=lb
         )
         with open("slice_output.txt", "a") as f:
             print(f"{col}: {slicevalue}, Count: {count:,}", file=f)

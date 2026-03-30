@@ -15,6 +15,7 @@ from ml.model import (
 
 #Path to cwd
 project_path = os.path.dirname(os.path.abspath(__file__))
+#Path to dataset
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path)
@@ -35,11 +36,6 @@ cat_features = [
 ]
 
 X_train, y_train, encoder, lb = process_data(train, cat_features,label='salary',training=True)
-    # your code here
-    # use the train dataset 
-    # use training=True
-    # do not need to pass encoder and lb as input
-
 
 X_test, y_test, _, _ = process_data(
     test,
